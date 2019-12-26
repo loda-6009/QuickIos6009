@@ -16,7 +16,7 @@ public extension Also {
     }
 }
 
-public extension Also where Self : AnyObject { }
+public extension Also where Self : Any { }
 
 
 

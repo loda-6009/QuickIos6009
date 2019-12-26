@@ -10,6 +10,11 @@ import Foundation
 
 
 public extension String {
+    
+    /// check if empty or all space text
+    func isBlank() -> Bool {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
 
     func attributed(fontSize: CGFloat? = nil) -> NSMutableAttributedString {
         if let size = fontSize {
