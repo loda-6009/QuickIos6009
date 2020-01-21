@@ -25,13 +25,13 @@ open class QuickButton: UIButton {
     }
     var defaultHighlightColor: UIColor {
         if #available(iOS 13.0, *) {
-            return UIColor.secondarySystemBackground
+            return UIColor.systemGray2
         }
         return UIColor.black.brightness(brightness: 0.5)
     }
     var defaultDisableColor: UIColor {
         if #available(iOS 13.0, *) {
-            return UIColor.secondarySystemBackground.brightness(brightness: 0.7)
+            return UIColor.systemGray5
         }
         return UIColor.black.brightness(brightness: 0.9)
     }
@@ -46,16 +46,36 @@ open class QuickButton: UIButton {
     public var normalColor: UIColor = UIColor.white
 
     @IBInspectable
-    public var highlightColor: UIColor = UIColor.black.brightness(brightness: 0.5)
+    public var highlightColor: UIColor = UIColor.black.brightness(brightness: 0.5) {
+        didSet {
+            _size = CGSize.zero
+            updateState()
+        }
+    }
 
     @IBInspectable
-    public var disableColor: UIColor = UIColor.black.brightness(brightness: 0.9)
+    public var disableColor: UIColor = UIColor.black.brightness(brightness: 0.9) {
+        didSet {
+            _size = CGSize.zero
+            updateState()
+        }
+    }
 
     @IBInspectable
-    public var borderColor: UIColor = UIColor.lightGray
+    public var borderColor: UIColor = UIColor.lightGray {
+        didSet {
+            _size = CGSize.zero
+            updateState()
+        }
+    }
 
     @IBInspectable
-    public var borderWidth: CGFloat = 1
+    public var borderWidth: CGFloat = 1 {
+        didSet {
+            _size = CGSize.zero
+            updateState()
+        }
+    }
 
     @IBInspectable
     public var icon: UIImage? = nil {
@@ -195,7 +215,7 @@ open class QuickButton: UIButton {
         layer.cornerRadius = r
 
         if isEnabled {
-            if useGradient {
+            if useGradient && !isHighlighted {
                 layer.insertSublayer(gradientLayer, at: 0)
             } else {
                 gradientLayer.removeFromSuperlayer()
@@ -232,10 +252,10 @@ open class QuickButton: UIButton {
         iconIv.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
         iconIv.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
 
-        normalColor = defaultNormalColor
-        highlightColor = defaultHighlightColor
-        disableColor = defaultDisableColor
-        borderColor = defaultBorderColor
+        normalColor = self.defaultNormalColor
+        highlightColor = self.defaultHighlightColor
+        disableColor = self.defaultDisableColor
+        borderColor = self.defaultBorderColor
     }
 
     open override func layoutSubviews() {
