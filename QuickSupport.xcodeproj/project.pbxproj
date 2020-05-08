@@ -119,9 +119,7 @@
 		1726167822826FE200A9EB76 = {
 			isa = PBXGroup;
 			children = (
-				172616CE228270AD00A9EB76 /* component */,
-				172616A32282709000A9EB76 /* type */,
-				172616AF2282709000A9EB76 /* util */,
+				17E184D42465AA8C006988EE /* Classes */,
 				1726168422826FE200A9EB76 /* QuickSupport */,
 				1726168F22826FE200A9EB76 /* QuickSupportTests */,
 				1726168322826FE200A9EB76 /* Products */,
@@ -206,6 +204,16 @@
 				1717413723418DB000402029 /* UIStyleChanges.swift */,
 			);
 			path = component;
+			sourceTree = "<group>";
+		};
+		17E184D42465AA8C006988EE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				172616CE228270AD00A9EB76 /* component */,
+				172616A32282709000A9EB76 /* type */,
+				172616AF2282709000A9EB76 /* util */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

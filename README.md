@@ -1,4 +1,9 @@
 # QuickIos6009
 
-* 워크스페이스 프로젝트를 만든 다음에 QuickIosSupport 프로젝트를 포함시킨다. 
+* 코코아 프로젝트로 포함시키거나
+```
+pod 'QuickSupport', :path => '~/Workspace/QuickIos6009/'
+```
+
+* 워크스페이스에 프레임워크 프로젝트로 추가
 
